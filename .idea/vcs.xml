@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pygsti_qubic_demo/QubicCali2021a" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pyrpe" vcs="Git" />
   </component>
 </project>
