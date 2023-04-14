@@ -5,3 +5,20 @@ pygsti_to_qubic = {
         'Gxx': ['X90', 'X90'],
         'Gxy': ['X90', 'Y90'],
         'Gyx': ['Y90', 'X90']}
+
+
+def parse_layer(layertup):
+        layercirc = []
+        if layertup.name == 'COMPOUND':
+                for layer in layertup:
+                        layercirc.extend(parse_layer(layer))
+        else:
+                if isinstance(pygsti_to_qubic[layertup.name], str):
+                        layercirc = [{'name': pygsti_to_qubic[layertup.name],
+                                      'qubit': layertup.qubits}]
+                else:
+                        layercirc = []
+                        for i, gatename in enumerate(pygsti_to_qubic[layertup.name]):
+                                layercirc.append({'name': gatename,
+                                                  'qubit': layertup.qubits})
+        return layercirc
